@@ -1,3 +1,5 @@
+let listaDeNumerosSorteados = [];
+let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
@@ -40,7 +42,20 @@ limparCampo();
 }
 
 function gerarNumeroAleatorio() {
-    return parseInt(Math.random() * 10 + 1);
+    let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
+    let quantidadeDeElementosNaLista = listaDeNumerosSorteados.length;
+
+    if(quantidadeDeElementosNaLista == 3){
+        listaDeNumerosSorteados = [];
+    }
+
+    if(listaDeNumerosSorteados.includes(numeroEscolhido)){
+        return gerarNumeroAleatorio();
+    }else{
+        listaDeNumerosSorteados.push(numeroEscolhido);
+        console.log(listaDeNumerosSorteados)
+        return numeroEscolhido;
+    }
 }
 
 // limpar o número informado
@@ -151,3 +166,35 @@ Link de solução: https://github.com/alura-cursos/js-curso-2/tree/desafio_3
 
 */
 
+
+/*
+Crie uma lista vazia, com o nome listaGenerica.
+
+let listaGenerica = [];
+
+Crie uma lista de linguagens de programação chamada linguagensDeProgramacao com os seguintes elementos: 'JavaScript','C','C++', 'Kotlin' e 'Python'.
+
+let linguagensDeProgramacao = ['JavaScript', 'C', 'C++', 'Kotlin', 'Python'];
+Adicione à lista linguagensDeProgramacao os seguintes elementos: 'Java', 'Ruby' e 'GoLang'.
+
+let linguagensDeProgramacao = ['JavaScript', 'C', 'C++', 'Kotlin', 'Python'];
+linguagensDeProgramacao.push('Java', 'Ruby', 'GoLang');
+// Lista ao final: ['JavaScript', 'C', 'C++', 'Kotlin', 'Python', 'Java', 'Ruby', 'GoLang']
+
+Crie uma lista com 3 nomes e exiba no console apenas o primeiro elemento.
+
+nomes = ['JavaScript', 'Python', 'Go'];
+console.log(nomes[0]);
+
+Crie uma lista com 3 nomes e exiba no console apenas o segundo elemento.
+
+nomes = ['JavaScript', 'Python', 'Go'];
+console.log(nomes[1]);
+
+Crie uma lista com 3 nomes e exiba no console apenas o último elemento.
+
+nomes = ['JavaScript', 'Python', 'Go'];
+console.log(nomes[2]);
+
+Link Solução: https://github.com/alura-cursos/js-curso-2/tree/desafio_4
+*/
